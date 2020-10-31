@@ -8,13 +8,13 @@ private:
     /* string strengths;
     string weakness; */
     string tribe;
-    string level;
+    int level;
     string connection;
     string rank;
 public:
     //Constructor
     orc(const string &name, const string &advanced_classes, const string &classes, const string &strengths,
-        const string &weakness, const string &tribe, const string &level, const string &connection,
+        const string &weakness, const string &tribe, const int &level, const string &connection,
         const string &rank) {
         this->name = name;
         this->advanced_classes = advanced_classes;
@@ -34,7 +34,7 @@ public:
         /* this->strengths = "NoStrengths";
         this->weakness = "NoWeakness"; */
         this->tribe = "NoTribe";
-        this->level = "NoLevel";
+        this->level = "0";
         this->connection = "NoConnection";
         this->rank = "NoRank";
     }
@@ -87,11 +87,11 @@ public:
         orc::tribe = tribe;
     }
 
-    const string &getLevel() const {
+    const int &getLevel() const {
         return level;
     }
 
-    void setLevel(const string &level) {
+    void setLevel(const int &level) {
         orc::level = level;
     }
 
@@ -121,7 +121,7 @@ public:
         cout << "    -" << this->level << endl;
         cout << "    -" << this->connection << endl;
         cout << "    -" << this->rank << endl;
-        cout<<"---------->THE ORC HAS BEEN ACCEPTED BY THE OVERLORD TO THE FORTRESS<----------"
+        cout<<"---------->THE ORC HAS BEEN KILLED<----------"
     }
 };
 class beast
@@ -180,8 +180,111 @@ public:
 class strengths
 {
 private:
+ string immunities;
+ string hates;
+ string class_traits;
+ string bonuses;
+public:
+    strengths(const string &immunities,const string &hates,const string &class_traits,const string &bonuses)
+    {
+        this->immunities=immunities;
+        this->hates=hates;
+        this->class_traits=class_traits;
+        this->bonuses=bonuses;
+    }
+    strengths()
+    {
+        this->immunities="NoImmunities";
+        this->hates="NoHates";
+        this->class_traits="NoClassTraits";
+        this->bonuses="Bonuses";
+    }
+    const string &getImmunities() const {
+        return immunities;
+    }
 
+    void setImmunities(const string &immunities) {
+        strengths::immunities=immunities;
+    }
+    const string &getHates() const {
+        return hates;
+    }
 
+    void setHates(const string &hates) {
+        strengths::hates=hates;
+    }
+    const string &getClassTraits() const {
+        return class_traits;
+    }
 
+    void setClassTraits(const string &class_traits) {
+        strengths::class_traits=class_traits;
+    }
+    const string &getBonuses() const {
+        return bonuses;
+    }
 
+    void setBonuses(const string &bonuses) {
+        strengths::bonuses;
+    }
 };
+class weaknesses {
+private:
+    string mortal_weaknesses;
+    string vulnerabilities;
+    string dazed_by;
+    string hints;
+public:
+    weaknesses(const string &mortal_weaknesses, const string &vulnerabilities, const string &dazed_by,
+               const string &hints) {
+        this->mortal_weaknesses = mortal_weaknesses;
+        this->vulnerabilities = vulnerabilities;
+        this->dazed_by = dazed_by;
+        this->hints = hints;
+    }
+
+    weaknesses() {
+        this->mortal_weaknesses = "NoMortalWeaknesses";
+        this->vulnerabilities = "NoVulnerabilities";
+        this->dazed_by = "NoDazed";
+        this->hints = "NoHints";
+    }
+
+    const string &getMortal_weaknesses() const {
+        return mortal_weaknesses;
+    }
+
+    void setMortal_weaknesses(const string &mortal_weaknesses) {
+        weaknesses::mortal_weaknesses = mortal_weaknesses;
+    }
+
+    const string &getVulnerabilities() const {
+        return vulnerabilities;
+    }
+
+    void setVulnerabilities(const string &vulnerabilities) {
+        weaknesses::vulnerabilities = vulnerabilities;
+    }
+    const string &getDazedBy() const {
+        return dazed_by;
+    }
+
+    void setDazedBy(const string &dazed_by) {
+        weaknesses::dazed_by = dazed_by;
+    }
+    const string &getHints() const {
+        return hints;
+    }
+
+    void setHints(const string &hints) {
+        weaknesses::hints = hints;
+    }
+}
+int main()
+{
+    orc DeanDegenerate(DeanDegenerate,slayer,savage,dark-tribe,59,none,none);
+
+
+
+    return 0;
+}
