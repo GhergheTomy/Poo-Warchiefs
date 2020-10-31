@@ -13,8 +13,8 @@ private:
     string rank;
 public:
     //Constructor
-    orc(const string &name, const string &advanced_classes, const string &classes, const string &strengths,
-        const string &weakness, const string &tribe, const int &level, const string &connection,
+    orc(const string &name, const string &advanced_classes, const string &classes /*, const string &strengths,
+        const string &weakness */, const string &tribe, const int &level, const string &connection,
         const string &rank) {
         this->name = name;
         this->advanced_classes = advanced_classes;
@@ -34,7 +34,7 @@ public:
         /* this->strengths = "NoStrengths";
         this->weakness = "NoWeakness"; */
         this->tribe = "NoTribe";
-        this->level = "0";
+        this->level = 0;
         this->connection = "NoConnection";
         this->rank = "NoRank";
     }
@@ -121,7 +121,7 @@ public:
         cout << "    -" << this->level << endl;
         cout << "    -" << this->connection << endl;
         cout << "    -" << this->rank << endl;
-        cout<<"---------->THE ORC HAS BEEN KILLED<----------"
+        cout<<"---------->THE ORC HAS BEEN KILLED<----------";
     }
 };
 class beast
@@ -279,10 +279,10 @@ public:
     void setHints(const string &hints) {
         weaknesses::hints = hints;
     }
-}
+};
 int main()
 {
-    orc DeanDegenerate(DeanDegenerate,slayer,savage,dark-tribe,59,none,none);
+    orc DeanDegenerate("DeanDegenerate","slayer","savage","dark-tribe",59,"none","none");
 
 
 
