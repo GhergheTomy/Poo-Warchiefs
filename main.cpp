@@ -1,4 +1,5 @@
 #include<iostream>
+#include <iomanip>
 using namespace std;
 class orc {
 private:
@@ -418,9 +419,31 @@ cout<<"Classes:1-Archer"<<endl;
     orc prime(name1,adv_class,classes1,tribe1,1,"none","captain");
 
 }
+int start()
+{
+    int v=0;
+    cout<<setw(25);
+    cout<<"Who can be the overlord?"<<endl;
+    cout<<endl;
+    cout<<setw(0);
+    cout<<"1-Start Game"<<endl;
+    cout<<"2-Exit";
+    cin>>v;
+    switch(v)
+    {
+        case 1:
+            create_orc();
+            break;
+        case 2:
+            return 0;
+        default:
+            break;
+    }
+}
 int main()
 {
     //orc DeanDegenerate("DeanDegenerate","slayer","savage","dark-tribe",59,"none","none");
-create_orc();
+    //create_orc();
+    start();
     return 0;
 }
