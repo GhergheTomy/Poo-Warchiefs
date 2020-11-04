@@ -1,5 +1,7 @@
 #include<iostream>
 #include <iomanip>
+#include <afxres.h>
+
 using namespace std;
 class orc {
 private:
@@ -281,7 +283,14 @@ public:
         weaknesses::hints = hints;
     }
 };
-
+void clean_console()
+{
+#ifdef _WIN32
+#define CLEAR system(" cls ");
+#else
+#define CLEAR system("clear");
+#endif
+}
 void create_orc()
 {
     string name1,classes1,adv_class,tribe1;
@@ -319,11 +328,7 @@ cout<<"Classes:1-Archer"<<endl;
         default:
             break;
     }
-#ifdef _WIN32
-#define CLEAR system(" cls ");
-#else
-#define CLEAR system("clear");
-#endif
+clean_console();
     cout<<"Advanced Classes:1 -Assasin"<<endl;
     cout<<"                 2 -Beast Master"<<endl;
     cout<<"                 3 -Berseker"<<endl;
@@ -372,11 +377,7 @@ cout<<"Classes:1-Archer"<<endl;
         default:
             break;
     }
-#ifdef _WIN32
-#define CLEAR system(" cls ");
-#else
-#define CLEAR system("clear");
-#endif
+clean_console();
     cout<<"Tribe:1-Dark Tribe"<<endl;
     cout<<"      2-Feral Tribe"<<endl;
     cout<<"      3-Machine Tribe"<<endl;
@@ -411,11 +412,7 @@ cout<<"Classes:1-Archer"<<endl;
         default:
             break;
     }
-#ifdef _WIN32
-#define CLEAR system(" cls ");
-#else
-#define CLEAR system("clear");
-#endif
+clean_console();
     orc prime(name1,adv_class,classes1,tribe1,1,"none","captain");
 
 }
@@ -432,6 +429,7 @@ int start()
     switch(v)
     {
         case 1:
+            clean_console();
             create_orc();
             break;
         case 2:
@@ -444,6 +442,9 @@ int main()
 {
     //orc DeanDegenerate("DeanDegenerate","slayer","savage","dark-tribe",59,"none","none");
     //create_orc();
+    //PlaySound("music.wav", NULL, SND_FILENAME|SND_LOOP|SND_ASYNC);
+    //Am cautat rezolvare la linia de mai sus mult daca sti cum as putea rezolva sunt doar urechi.
+    //Ce am gasit e doar pentru windows deci nu ajuta ca sa mearga pe orice platforma :)).
     start();
     return 0;
 }
