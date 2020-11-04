@@ -1,206 +1,37 @@
 #include<iostream>
 #include <iomanip>
 #include <afxres.h>
-
+#include <vector>
+#ifdef _WIN32
+#define CLEAR system(" cls ");
+#else
+#define CLEAR system("clear");
+#endif
 using namespace std;
-class orc {
-private:
-    string name;
-    string advanced_classes;
-    string classes;
-    /* string strengths;
-    string weakness; */
-    string tribe;
-    int level;
-    string connection;
-    string rank;
-public:
-    //Constructor
-    orc(const string &name, const string &advanced_classes, const string &classes /*, const string &strengths,
-        const string &weakness */, const string &tribe, const int &level, const string &connection,
-        const string &rank) {
-        this->name = name;
-        this->advanced_classes = advanced_classes;
-        this->classes = classes;
-        /* this->strengths = strengths;
-         this->weakness = weakness; */
-        this->tribe = tribe;
-        this->level = level;
-        this->connection = connection;
-        this->rank = rank;
-    }
-//Deafault constructor
-    orc() {
-        this->name = "NoName";
-        this->advanced_classes = "NoAdvancedClasses";
-        this->classes = "NoClasses";
-        /* this->strengths = "NoStrengths";
-        this->weakness = "NoWeakness"; */
-        this->tribe = "NoTribe";
-        this->level = 0;
-        this->connection = "NoConnection";
-        this->rank = "NoRank";
-    }
-
-    const string &getName() const {
-        return name;
-    }
-
-    void setName(const string &name) {
-        orc::name = name;
-    }
-
-    const string &getAdvanced_classes() const {
-        return advanced_classes;
-    }
-
-    void setAdvanced_classes(const string &advanced_classes) {
-        orc::advanced_classes = advanced_classes;
-    }
-
-    const string &getClasses() const {
-        return classes;
-    }
-
-    void setClasses(const string &classes) {
-        orc::classes = classes;
-    }
-
-    /* const string &getStrengths() const {
-        return strengths;
-    }
-
-    void setStrengths(const string &strengths) {
-        orc::strengths = strengths;
-    }
-
-    const string &getWeakness() const {
-        return weakness;
-    }
-
-    void setWeakness(const string &weakness) {
-        orc::weakness = weakness;
-    }
-*/
-    const string &getTribe() const {
-        return tribe;
-    }
-
-    void setTribe(const string &tribe) {
-        orc::tribe = tribe;
-    }
-
-    const int &getLevel() const {
-        return level;
-    }
-
-    void setLevel(const int &level) {
-        orc::level = level;
-    }
-
-    const string &getConnection() const {
-        return connection;
-    }
-
-    void setConnection(const string &connection) {
-        orc::connection = connection;
-    }
-
-    const string &getRank() const {
-        return rank;
-    }
-
-    void setRank(const string &rank) {
-        orc::rank = rank;
-    }
-//Destructor
-    virtual ~orc() {
-        cout << "Orc:-" << this->name << endl;
-        cout << "    -" << this->advanced_classes << endl;
-        cout << "    -" << this->classes << endl;
-        /*      cout << "    -" << this->strengths << endl;
-              cout << "    -" << this->weakness << endl; */
-        cout << "    -" << this->tribe << endl;
-        cout << "    -" << this->level << endl;
-        cout << "    -" << this->connection << endl;
-        cout << "    -" << this->rank << endl;
-        cout<<"---------->THE ORC HAS BEEN KILLED<----------";
-    }
-};
-class beast
-{
-private:
-    string name;
-    string element_type;
-    string type;
-
-public:
-    beast(const string&name,const string &element_type,const  string &type)
-    {
-        this->name=name;
-        this->element_type=element_type;
-        this->type=type;
-    }
-    beast()
-    {
-        this->name="NoName";
-        this->element_type="Common";
-        this->type="NoType";
-    }
-    const string &getname() const
-    {
-        return name;
-    }
-    void setname(const  string &name)
-    {
-        beast::name=name;
-    }
-    const string &getelement_type() const
-    {
-        return element_type;
-    }
-    void setelement_type(const  string &element_type)
-    {
-        beast::element_type=element_type;
-    }
-    const string &gettype() const
-    {
-        return type;
-    }
-    void settype(const  string &type)
-    {
-        beast::type=type;
-    }
-
-    ~beast()
-    {
-        std::cout<<"Victory! You killed the beast!" ;
-        /* Mom nu am creat toate legaturile dar vreau la asta gen sa fie ca o
-        misiune in care sa creasca cu un level si pe langa asta sa fie o probabilitate
-        de un procent x in care sa poata primi si o abilitate impotriva lor gen beast proof */
-    }
-};
+#include "clasaorc.h"
+#include "beast.h"
+/*
 class strengths
 {
 private:
- string immunities;
- string hates;
- string class_traits;
- string bonuses;
+ vector<string> immunities;
+ vector<string> hates;
+ vector<string> class_traits;
+ vector<string> bonuses;
 public:
     strengths(const string &immunities,const string &hates,const string &class_traits,const string &bonuses)
     {
-        this->immunities=immunities;
-        this->hates=hates;
-        this->class_traits=class_traits;
-        this->bonuses=bonuses;
+        this->immunities.push_back(immunities);
+        this->hates.push_back(hates);
+        this->class_traits.push_back(class_traits);
+        this->bonuses.push_back(bonuses);
     }
     strengths()
     {
-        this->immunities="NoImmunities";
-        this->hates="NoHates";
-        this->class_traits="NoClassTraits";
-        this->bonuses="Bonuses";
+        this->immunities.push_back("NoImmunities");
+        this->hates.push_back("NoHates");
+        this->class_traits.push_back("NoClassTraits");
+        this->bonuses.push_back("Bonuses");
     }
     const string &getImmunities() const {
         return immunities;
@@ -231,6 +62,7 @@ public:
         strengths::bonuses;
     }
 };
+ */
 class weaknesses {
 private:
     string mortal_weaknesses;
@@ -283,22 +115,14 @@ public:
         weaknesses::hints = hints;
     }
 };
-void clean_console()
-{
-#ifdef _WIN32
-#define CLEAR system(" cls ");
-#else
-#define CLEAR system("clear");
-#endif
-}
 void create_orc()
 {
     string name1,classes1,adv_class,tribe1;
     int v,p;
     cout<<"Name:";
     cin>>name1;
-
-cout<<"Classes:1-Archer"<<endl;
+CLEAR
+    cout<<"Classes:1-Archer"<<endl;
     cout<<"        2-Defender"<<endl;
     cout<<"        3-Hunter"<<endl;
     cout<<"        4-Olog-Kai"<<endl;
@@ -328,7 +152,7 @@ cout<<"Classes:1-Archer"<<endl;
         default:
             break;
     }
-clean_console();
+CLEAR
     cout<<"Advanced Classes:1 -Assasin"<<endl;
     cout<<"                 2 -Beast Master"<<endl;
     cout<<"                 3 -Berseker"<<endl;
@@ -377,7 +201,7 @@ clean_console();
         default:
             break;
     }
-clean_console();
+CLEAR
     cout<<"Tribe:1-Dark Tribe"<<endl;
     cout<<"      2-Feral Tribe"<<endl;
     cout<<"      3-Machine Tribe"<<endl;
@@ -412,8 +236,8 @@ clean_console();
         default:
             break;
     }
-clean_console();
-    orc prime(name1,adv_class,classes1,tribe1,1,"none","captain");
+CLEAR
+orc prime(name1,adv_class,classes1,tribe1,1,"none","captain");
 
 }
 int start()
@@ -426,11 +250,11 @@ int start()
     cout<<"1-Start Game"<<endl;
     cout<<"2-Exit";
     cin>>v;
+    CLEAR
     switch(v)
     {
         case 1:
-            clean_console();
-            create_orc();
+create_orc();
             break;
         case 2:
             return 0;
@@ -443,8 +267,10 @@ int main()
     //orc DeanDegenerate("DeanDegenerate","slayer","savage","dark-tribe",59,"none","none");
     //create_orc();
     //PlaySound("music.wav", NULL, SND_FILENAME|SND_LOOP|SND_ASYNC);
-    //Am cautat rezolvare la linia de mai sus mult daca sti cum as putea rezolva sunt doar urechi.
+    //---->Am cautat rezolvare la linia de mai sus mult daca sti cum as putea rezolva sunt doar urechi.
     //Ce am gasit e doar pentru windows deci nu ajuta ca sa mearga pe orice platforma :)).
     start();
     return 0;
+
+
 }
