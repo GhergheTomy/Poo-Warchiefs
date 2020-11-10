@@ -10,60 +10,9 @@
 using namespace std;
 #include "clasaorc.h"
 #include "beast.h"
-#include "classstrenghts.h"
+#include "classstrengths.h"
+#include "classweakness.h"
 
-class weaknesses {
-private:
-    string mortal_weaknesses;
-    string vulnerabilities;
-    string dazed_by;
-    string hints;
-public:
-    weaknesses(const string &mortal_weaknesses, const string &vulnerabilities, const string &dazed_by,
-               const string &hints) {
-        this->mortal_weaknesses = mortal_weaknesses;
-        this->vulnerabilities = vulnerabilities;
-        this->dazed_by = dazed_by;
-        this->hints = hints;
-    }
-
-    weaknesses() {
-        this->mortal_weaknesses = "NoMortalWeaknesses";
-        this->vulnerabilities = "NoVulnerabilities";
-        this->dazed_by = "NoDazed";
-        this->hints = "NoHints";
-    }
-
-    const string &getMortal_weaknesses() const {
-        return mortal_weaknesses;
-    }
-
-    void setMortal_weaknesses(const string &mortal_weaknesses) {
-        weaknesses::mortal_weaknesses = mortal_weaknesses;
-    }
-
-    const string &getVulnerabilities() const {
-        return vulnerabilities;
-    }
-
-    void setVulnerabilities(const string &vulnerabilities) {
-        weaknesses::vulnerabilities = vulnerabilities;
-    }
-    const string &getDazedBy() const {
-        return dazed_by;
-    }
-
-    void setDazedBy(const string &dazed_by) {
-        weaknesses::dazed_by = dazed_by;
-    }
-    const string &getHints() const {
-        return hints;
-    }
-
-    void setHints(const string &hints) {
-        weaknesses::hints = hints;
-    }
-};
 void create_orc()
 {
     string name1,classes1,adv_class,tribe1;
@@ -197,7 +146,9 @@ int start()
     cout<<endl;
     cout<<setw(0);
     cout<<"1-Start Game"<<endl;
-    cout<<"2-Exit";
+    cout<<"2-Exit"<<endl;
+    cout<<setw(25);
+    cout<<"What do you choose now?-";
     cin>>v;
     CLEAR
     switch(v)
@@ -219,6 +170,8 @@ int main()
     //---->Am cautat rezolvare la linia de mai sus mult daca sti cum as putea rezolva sunt doar urechi.
     //Ce am gasit e doar pentru windows deci nu ajuta ca sa mearga pe orice platforma :)).
     start();
+    int n;
+    cin>>n;
     return 0;
 
 
