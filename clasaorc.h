@@ -3,6 +3,8 @@ private:
     string name;
     string advanced_classes;
     string classes;
+    strengths x;
+    weaknesses y;
     /* string strengths;
     string weakness; */
     string tribe;

@@ -1,4 +1,5 @@
 #include<iostream>
+#include<SFML/Audio.hpp>
 #include <iomanip>
 #include <afxres.h>
 #include <vector>
@@ -8,10 +9,10 @@
 #define CLEAR system("clear");
 #endif
 using namespace std;
-#include "clasaorc.h"
-#include "beast.h"
 #include "classstrengths.h"
 #include "classweakness.h"
+#include "clasaorc.h"
+#include "beast.h"
 
 void create_orc()
 {
@@ -169,9 +170,13 @@ int main()
     //PlaySound("music.wav", NULL, SND_FILENAME|SND_LOOP|SND_ASYNC);
     //---->Am cautat rezolvare la linia de mai sus mult daca sti cum as putea rezolva sunt doar urechi.
     //Ce am gasit e doar pentru windows deci nu ajuta ca sa mearga pe orice platforma :)).
+    sf::Music music;
+    if (!music.openFromFile("music.wav"))
+        return -1; // error
+    music.play();
     start();
-    int n;
-    cin>>n;
+    //int n;
+    //cin>>n;
     return 0;
 
 
