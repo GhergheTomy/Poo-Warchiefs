@@ -1,21 +1,23 @@
+#include <ostream>
+
 class orc {
 private:
-    string name;
-    string advanced_classes;
-    string classes;
+    std::string name;
+    std::string advanced_classes;
+    std::string classes;
     strengths x;
     weaknesses y;
     /* string strengths;
     string weakness; */
-    string tribe;
+    std::string tribe;
     int level;
-    string connection;
-    string rank;
+    std::string connection;
+    std::string rank;
 public:
     //Constructor
-    orc(const string &name, const string &advanced_classes, const string &classes /*, const string &strengths,
-        const string &weakness */, const string &tribe, const int &level, const string &connection,
-        const string &rank) {
+    orc(const std::string &name, const std::string &advanced_classes, const std::string &classes /*, const string &strengths,
+        const string &weakness */, const std::string &tribe, const int &level, const std::string &connection,
+        const std::string &rank) {
         this->name = name;
         this->advanced_classes = advanced_classes;
         this->classes = classes;
@@ -34,32 +36,65 @@ public:
         /* this->strengths = "NoStrengths";
         this->weakness = "NoWeakness"; */
         this->tribe = "NoTribe";
-        this->level = 0;
+        this->level = 1;
         this->connection = "NoConnection";
-        this->rank = "NoRank";
+        this->rank = "Captain";
+    }
+    //Constructor copiere
+    orc(const orc&o)
+    {
+        this->name=o.name;
+        this->advanced_classes=o.advanced_classes;
+        this->classes =o.classes;
+        this->tribe=o.tribe;
+        this->level=o.level;
+        this->connection=o.connection;
+        this->rank=o.rank;
     }
 
-    const string &getName() const {
+    //Operator <<
+    friend std::ostream &operator<<(std::ostream &os, const orc &orc) {
+        os << "name: " << orc.name << " advanced_classes: " << orc.advanced_classes << " classes: " << orc.classes
+           << " tribe: " << orc.tribe << " level: " << orc.level
+           << " connection: " << orc.connection << " rank: " << orc.rank;
+        return os;
+    }
+
+//Operatorul =
+    orc &operator=(const orc&o)
+    {
+        this->name=o.name;
+        this->advanced_classes=o.advanced_classes;
+        this->classes =o.classes;
+        this->tribe=o.tribe;
+        this->level=o.level;
+        this->connection=o.connection;
+        this->rank=o.rank;
+        return *this;
+    }
+
+
+    const std::string &getName() const {
         return name;
     }
 
-    void setName(const string &name) {
+    void setName(const std::string &name) {
         orc::name = name;
     }
 
-    const string &getAdvanced_classes() const {
+    const std::string &getAdvanced_classes() const {
         return advanced_classes;
     }
 
-    void setAdvanced_classes(const string &advanced_classes) {
+    void setAdvanced_classes(const std::string &advanced_classes) {
         orc::advanced_classes = advanced_classes;
     }
 
-    const string &getClasses() const {
+    const std::string &getClasses() const {
         return classes;
     }
 
-    void setClasses(const string &classes) {
+    void setClasses(const std::string &classes) {
         orc::classes = classes;
     }
 
@@ -79,11 +114,11 @@ public:
         orc::weakness = weakness;
     }
 */
-    const string &getTribe() const {
+    const std::string &getTribe() const {
         return tribe;
     }
 
-    void setTribe(const string &tribe) {
+    void setTribe(const std::string &tribe) {
         orc::tribe = tribe;
     }
 
@@ -95,32 +130,32 @@ public:
         orc::level = level;
     }
 
-    const string &getConnection() const {
+    const std::string &getConnection() const {
         return connection;
     }
 
-    void setConnection(const string &connection) {
+    void setConnection(const std::string &connection) {
         orc::connection = connection;
     }
 
-    const string &getRank() const {
+    const std::string &getRank() const {
         return rank;
     }
 
-    void setRank(const string &rank) {
+    void setRank(const std::string &rank) {
         orc::rank = rank;
     }
 //Destructor
     virtual ~orc() {
-        cout << "Orc:-" << this->name << endl;
-        cout << "    -" << this->advanced_classes << endl;
-        cout << "    -" << this->classes << endl;
+        std::cout << "Orc:-" << this->name << std::endl;
+        std::cout << "    -" << this->advanced_classes << std::endl;
+        std::cout << "    -" << this->classes << std::endl;
         /*      cout << "    -" << this->strengths << endl;
               cout << "    -" << this->weakness << endl; */
-        cout << "    -" << this->tribe << endl;
-        cout << "    -" << this->level << endl;
-        cout << "    -" << this->connection << endl;
-        cout << "    -" << this->rank << endl;
-        cout<<"---------->THE ORC HAS BEEN KILLED<----------";
+        std::cout << "    -" << this->tribe << std::endl;
+        std::cout << "    -" << this->level << std::endl;
+        std::cout << "    -" << this->connection << std::endl;
+        std::cout << "    -" << this->rank << std::endl;
+        std::cout<<"---------->THE ORC HAS BEEN KILLED<----------";
     }
 };

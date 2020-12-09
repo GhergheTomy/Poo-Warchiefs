@@ -1,14 +1,13 @@
 #include<iostream>
 #include<SFML/Audio.hpp>
 #include <iomanip>
-#include <afxres.h>
 #include <vector>
 #ifdef _WIN32
 #define CLEAR system(" cls ");
 #else
 #define CLEAR system("clear");
 #endif
-using namespace std;
+
 #include "classstrengths.h"
 #include "classweakness.h"
 #include "clasaorc.h"
@@ -16,19 +15,19 @@ using namespace std;
 
 void create_orc()
 {
-    string name1,classes1,adv_class,tribe1;
-    int v,p;
-    cout<<"Name:";
-    cin>>name1;
+    std::string name1,classes1,adv_class,tribe1;
+    int v;
+    std::cout<<"Name:";
+    std::cin>>name1;
 CLEAR
-    cout<<"Classes:1-Archer"<<endl;
-    cout<<"        2-Defender"<<endl;
-    cout<<"        3-Hunter"<<endl;
-    cout<<"        4-Olog-Kai"<<endl;
-    cout<<"        5-Savages"<<endl;
-    cout<<"        6-Warriors"<<endl;
-    cout<<"What class do you choose?-";
-    cin>>v;
+    std::cout<<"Classes:1-Archer"<<std::endl;
+    std::cout<<"        2-Defender"<<std::endl;
+    std::cout<<"        3-Hunter"<<std::endl;
+    std::cout<<"        4-Olog-Kai"<<std::endl;
+    std::cout<<"        5-Savages"<<std::endl;
+    std::cout<<"        6-Warriors"<<std::endl;
+    std::cout<<"What class do you choose?-";
+    std::cin>>v;
     switch (v) {
         case 1:
             classes1 = "Archer";
@@ -52,20 +51,20 @@ CLEAR
             break;
     }
 CLEAR
-    cout<<"Advanced Classes:1 -Assasin"<<endl;
-    cout<<"                 2 -Beast Master"<<endl;
-    cout<<"                 3 -Berseker"<<endl;
-    cout<<"                 4 -Commander"<<endl;
-    cout<<"                 5 -Destroier"<<endl;
-    cout<<"                 6 -Marksman"<<endl;
-    cout<<"                 7 -Tank"<<endl;
-    cout<<"                 8 -Tracker"<<endl;
-    cout<<"                 9 -Trickster"<<endl;
-    cout<<"                 10-Slayer"<<endl;
-    cout<<"What advanced class do you choose?-";
+    std::cout<<"Advanced Classes:1 -Assasin"<<std::endl;
+    std::cout<<"                 2 -Beast Master"<<std::endl;
+    std::cout<<"                 3 -Berseker"<<std::endl;
+    std::cout<<"                 4 -Commander"<<std::endl;
+    std::cout<<"                 5 -Destroier"<<std::endl;
+    std::cout<<"                 6 -Marksman"<<std::endl;
+    std::cout<<"                 7 -Tank"<<std::endl;
+    std::cout<<"                 8 -Tracker"<<std::endl;
+    std::cout<<"                 9 -Trickster"<<std::endl;
+    std::cout<<"                 10-Slayer"<<std::endl;
+    std::cout<<"What advanced class do you choose?-";
 
     v=0;
-    cin>>v;
+    std::cin>>v;
     switch (v) {
         case 1:
             adv_class = "Assasin";
@@ -101,15 +100,15 @@ CLEAR
             break;
     }
 CLEAR
-    cout<<"Tribe:1-Dark Tribe"<<endl;
-    cout<<"      2-Feral Tribe"<<endl;
-    cout<<"      3-Machine Tribe"<<endl;
-    cout<<"      4-Marauder Tribe"<<endl;
-    cout<<"      5-Mystic Tribe"<<endl;
-    cout<<"      6-Teror Tribe"<<endl;
-    cout<<"      7-Warmonger Tribe"<<endl;
-    cout<<"What tribe do you choose?-";
-    cin>>v;
+    std::cout<<"Tribe:1-Dark Tribe"<<std::endl;
+    std::cout<<"      2-Feral Tribe"<<std::endl;
+    std::cout<<"      3-Machine Tribe"<<std::endl;
+    std::cout<<"      4-Marauder Tribe"<<std::endl;
+    std::cout<<"      5-Mystic Tribe"<<std::endl;
+    std::cout<<"      6-Teror Tribe"<<std::endl;
+    std::cout<<"      7-Warmonger Tribe"<<std::endl;
+    std::cout<<"What tribe do you choose?-";
+    std::cin>>v;
     switch (v) {
         case 1:
             tribe1 = "Dark Tribe";
@@ -142,15 +141,15 @@ orc prime(name1,adv_class,classes1,tribe1,1,"none","captain");
 int start()
 {
     int v=0;
-    cout<<setw(25);
-    cout<<"Who can be the overlord?"<<endl;
-    cout<<endl;
-    cout<<setw(0);
-    cout<<"1-Start Game"<<endl;
-    cout<<"2-Exit"<<endl;
-    cout<<setw(25);
-    cout<<"What do you choose now?-";
-    cin>>v;
+    std::cout<<std::setw(25);
+    std::cout<<"Who can be the overlord?"<<std::endl;
+    std::cout<<std::endl;
+    std::cout<<std::setw(0);
+    std::cout<<"1-Start Game"<<std::endl;
+    std::cout<<"2-Exit"<<std::endl;
+    std::cout<<std::setw(25);
+    std::cout<<"What do you choose now?-";
+    std::cin>>v;
     CLEAR
     switch(v)
     {
@@ -162,21 +161,17 @@ create_orc();
         default:
             break;
     }
+    return 0;
 }
 int main()
 {
     //orc DeanDegenerate("DeanDegenerate","slayer","savage","dark-tribe",59,"none","none");
     //create_orc();
-    //PlaySound("music.wav", NULL, SND_FILENAME|SND_LOOP|SND_ASYNC);
-    //---->Am cautat rezolvare la linia de mai sus mult daca sti cum as putea rezolva sunt doar urechi.
-    //Ce am gasit e doar pentru windows deci nu ajuta ca sa mearga pe orice platforma :)).
     sf::Music music;
     if (!music.openFromFile("music.wav"))
         return -1; // error
     music.play();
     start();
-    //int n;
-    //cin>>n;
     return 0;
 
 

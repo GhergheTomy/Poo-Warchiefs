@@ -1,12 +1,12 @@
 class strengths
 {
 private:
-    vector<string> immunities;
-    vector<string> hates;
-    vector<string> class_traits;
-    vector<string> bonuses;
+    std::vector<std::string> immunities;
+    std::vector<std::string> hates;
+    std::vector<std::string> class_traits;
+    std::vector<std::string> bonuses;
 public:
-    strengths(const string &immunities,const string &hates,const string &class_traits,const string &bonuses)
+    strengths(const std::string &immunities,const std::string &hates,const std::string &class_traits,const std::string &bonuses)
     {
         this->immunities.push_back(immunities);
         this->hates.push_back(hates);
@@ -20,32 +20,32 @@ public:
         this->class_traits.push_back("NoClassTraits");
         this->bonuses.push_back("Bonuses");
     }
-    const vector<string> &getImmunities() const {
+    const std::vector<std::string> &getImmunities() const {
         return immunities;
     }
 
-    void setImmunities(const string &immunities) {
+    void setImmunities(const std::string &immunities) {
         strengths::immunities.push_back(immunities);
     }
-    const vector<string> &getHates() const {
+    const std::vector<std::string> &getHates() const {
         return hates;
     }
 
-    void setHates(const string &hates) {
+    void setHates(const std::string &hates) {
         strengths::hates.push_back(hates);
     }
-    const vector<string> &getClassTraits() const {
+    const std::vector<std::string> &getClassTraits() const {
         return class_traits;
     }
 
-    void setClassTraits(const string &class_traits) {
+    void setClassTraits(const std::string &class_traits) {
         strengths::class_traits.push_back(class_traits);
     }
-    const vector<string> &getBonuses() const {
+    const std::vector<std::string> &getBonuses() const {
         return bonuses;
     }
 
-    void setBonuses(const string &bonuses) {
+    void setBonuses(const std::string &bonuses) {
         strengths::bonuses.push_back(bonuses);
     }
 };

@@ -1,12 +1,14 @@
+
+
 class weaknesses {
 private:
-    vector<string> mortal_weaknesses;
-    vector<string> vulnerabilities;
-    vector<string> dazed_by;
-    vector<string> hints;
+    std::vector<std::string> mortal_weaknesses;
+    std::vector<std::string> vulnerabilities;
+    std::vector<std::string> dazed_by;
+    std::vector<std::string> hints;
 public:
-    weaknesses(const string &mortal_weaknesses, const string &vulnerabilities, const string &dazed_by,
-               const string &hints) {
+    weaknesses(const std::string &mortal_weaknesses, const std::string &vulnerabilities, const std::string &dazed_by,
+               const std::string &hints) {
         this->mortal_weaknesses.push_back(mortal_weaknesses);
         this->vulnerabilities.push_back(vulnerabilities);
         this->dazed_by.push_back(dazed_by);
@@ -20,33 +22,33 @@ public:
         this->hints.push_back("NoHints");
     }
 
-    const vector<string> &getMortal_weaknesses() const {
+    const std::vector<std::string> &getMortal_weaknesses() const {
         return mortal_weaknesses;
     }
 
-    void setMortal_weaknesses(const string &mortal_weaknesses) {
+    void setMortal_weaknesses(const std::string &mortal_weaknesses) {
         weaknesses::mortal_weaknesses.push_back(mortal_weaknesses);
     }
 
-    const vector<string> &getVulnerabilities() const {
+    const std::vector<std::string> &getVulnerabilities() const {
         return vulnerabilities;
     }
 
-    void setVulnerabilities(const string &vulnerabilities) {
+    void setVulnerabilities(const std::string &vulnerabilities) {
         weaknesses::vulnerabilities.push_back(vulnerabilities);
     }
-    const vector<string> &getDazedBy() const {
+    const std::vector<std::string> &getDazedBy() const {
         return dazed_by;
     }
 
-    void setDazedBy(const string &dazed_by) {
+    void setDazedBy(const std::string &dazed_by) {
         weaknesses::dazed_by.push_back(dazed_by);
     }
-    const vector<string> &getHints() const {
+    const std::vector<std::string> &getHints() const {
         return hints;
     }
 
-    void setHints(const string &hints) {
+    void setHints(const std::string &hints) {
         weaknesses::hints.push_back(hints);
     }
 };

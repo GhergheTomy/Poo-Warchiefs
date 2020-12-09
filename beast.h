@@ -1,12 +1,12 @@
 class beast
 {
 private:
-    string name;
-    string element_type;
-    string type;
+    std::string name;
+    std::string element_type;
+    std::string type;
 
 public:
-    beast(const string&name,const string &element_type,const  string &type)
+    beast(const std::string&name,const std::string &element_type,const  std::string &type)
     {
         this->name=name;
         this->element_type=element_type;
@@ -18,27 +18,27 @@ public:
         this->element_type="Common";
         this->type="NoType";
     }
-    const string &getname() const
+    const std::string &getname() const
     {
         return name;
     }
-    void setname(const  string &name)
+    void setname(const  std::string &name)
     {
         beast::name=name;
     }
-    const string &getelement_type() const
+    const std::string &getelement_type() const
     {
         return element_type;
     }
-    void setelement_type(const  string &element_type)
+    void setelement_type(const  std::string &element_type)
     {
         beast::element_type=element_type;
     }
-    const string &gettype() const
+    const std::string &gettype() const
     {
         return type;
     }
-    void settype(const  string &type)
+    void settype(const  std::string &type)
     {
         beast::type=type;
     }
