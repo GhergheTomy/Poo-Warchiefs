@@ -28,6 +28,7 @@ public:
         this->connection = connection;
         this->rank = rank;
     }
+
 //Deafault constructor
     orc() {
         this->name = "NoName";
@@ -40,16 +41,16 @@ public:
         this->connection = "NoConnection";
         this->rank = "Captain";
     }
+
     //Constructor copiere
-    orc(const orc&o)
-    {
-        this->name=o.name;
-        this->advanced_classes=o.advanced_classes;
-        this->classes =o.classes;
-        this->tribe=o.tribe;
-        this->level=o.level;
-        this->connection=o.connection;
-        this->rank=o.rank;
+    orc(const orc &o) {
+        this->name = o.name;
+        this->advanced_classes = o.advanced_classes;
+        this->classes = o.classes;
+        this->tribe = o.tribe;
+        this->level = o.level;
+        this->connection = o.connection;
+        this->rank = o.rank;
     }
 
     //Operator <<
@@ -61,15 +62,14 @@ public:
     }
 
 //Operatorul =
-    orc &operator=(const orc&o)
-    {
-        this->name=o.name;
-        this->advanced_classes=o.advanced_classes;
-        this->classes =o.classes;
-        this->tribe=o.tribe;
-        this->level=o.level;
-        this->connection=o.connection;
-        this->rank=o.rank;
+    orc &operator=(const orc &o) {
+        this->name = o.name;
+        this->advanced_classes = o.advanced_classes;
+        this->classes = o.classes;
+        this->tribe = o.tribe;
+        this->level = o.level;
+        this->connection = o.connection;
+        this->rank = o.rank;
         return *this;
     }
 
@@ -145,6 +145,7 @@ public:
     void setRank(const std::string &rank) {
         orc::rank = rank;
     }
+
 //Destructor
     virtual ~orc() {
         std::cout << "Orc:-" << this->name << std::endl;
@@ -156,6 +157,6 @@ public:
         std::cout << "    -" << this->level << std::endl;
         std::cout << "    -" << this->connection << std::endl;
         std::cout << "    -" << this->rank << std::endl;
-        std::cout<<"---------->THE ORC HAS BEEN KILLED<----------";
+        std::cout << "---------->THE ORC HAS BEEN KILLED<----------";
     }
 };
