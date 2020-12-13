@@ -37,6 +37,7 @@ public:
     void setVulnerabilities(const std::string &vulnerabilities) {
         weaknesses::vulnerabilities.push_back(vulnerabilities);
     }
+
     const std::vector<std::string> &getDazedBy() const {
         return dazed_by;
     }
@@ -44,6 +45,7 @@ public:
     void setDazedBy(const std::string &dazed_by) {
         weaknesses::dazed_by.push_back(dazed_by);
     }
+
     const std::vector<std::string> &getHints() const {
         return hints;
     }
