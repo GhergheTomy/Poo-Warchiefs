@@ -1,8 +1,12 @@
 #include<iostream>
 #include<SFML/Audio.hpp>
 #include <iomanip>
+#include <fstream>
+//std::ifstream s("strengths.in");
+//std::ifstream w("weakness.in");
+//std::ifstream n("name.in");
 #include <vector>
-
+//O sa fac grafica si dupa nu o sa imi mai trebuiasca il las momentan asa.
 #ifdef _WIN32
 #define CLEAR system(" cls ");
 #else
@@ -163,9 +167,21 @@ int start() {
     return 0;
 }
 
+void orc_create()
+{
+    int r= rand() % 100 + 1;
+//    std::cout<<r;
+    std::vector<std::string> s{"Fire Proof","Beast Proof","Poison Proof","Arrow Proof","Immune to curse","Immune to execution","Vigilant against stealth","Enraged by everything","Enraged by injury","Blood Brother","Enraged by rival","Enraged by hounded","Enraged by vengefull","Enraged by Drakes","Enraged by Graugs","Enraged by Ghuls","Enraged by Stealth","Agile","No Chance","Caragor Pack","Dem Mother","Spider Summener","Rampage","Flyng Axes","Shield Slam","Beast Slayer","Poison Weapon","Gang Hunters","Gang Hunters Elite","Giant Slayer","Cursed Weapon","Poison master","Cursed Master","Fanatical Gang","Great Strenghts","Epic Graug calll","Epic Catargor rider","Drake lure"};
+//    Toate tipurile din weeakness sunt puse intr-un vector dar pt fiecare tip se va face un rand in functie de pozitile unde se afla.
+
+    std::vector<std::string> w{};
+    std::cout<<s[6];
+}
+
 int main() {
     //orc DeanDegenerate("DeanDegenerate","slayer","savage","dark-tribe",59,"none","none");
     //create_orc();
+    orc_create();
     sf::Music music;
     if (!music.openFromFile("music.wav"))
         return -1; // error
