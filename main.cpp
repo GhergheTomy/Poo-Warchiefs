@@ -165,7 +165,7 @@ void create_orc() {
             pos = 1 + rand() % 4;
             switch (pos) {
                 case 1:
-                     one = beast_factory::caragour_easy();
+                    one = beast_factory::caragour_easy();
                     break;
                 case 2:
                     one = beast_factory::dragon_easy();
@@ -181,7 +181,7 @@ void create_orc() {
             }
             break;
         case 2:
-            pos = 1 + rand() % 4 ;
+            pos = 1 + rand() % 4;
             switch (pos) {
                 case 1:
                     one = beast_factory::caragour_medium();
@@ -238,7 +238,7 @@ void create_orc() {
             break;
 
     }
-    prime.setLevel(prime.getLevel()+1);
+    prime.setLevel(prime.getLevel() + 1);
 }
 
 int start() {
@@ -295,5 +295,5 @@ int main() {
     music.play();
     start();
     return 0;
-
+             //Am creat factory si am indentat tot codul
 }
