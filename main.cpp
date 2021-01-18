@@ -2,6 +2,7 @@
 #include<SFML/Audio.hpp>
 #include <iomanip>
 #include <fstream>
+#include <random>
 //std::ifstream s("strengths.in");
 //std::ifstream w("weakness.in");
 //std::ifstream n("name.in");
@@ -130,7 +131,7 @@ void create_orc() {
             tribe1 = "Mystic Tribe";
             break;
         case 6:
-            tribe1 = "Teror Tribe";
+            tribe1 = "Terror Tribe";
             break;
         case 7:
             tribe1 = "Warmonger Tribe";
@@ -141,53 +142,158 @@ void create_orc() {
     CLEAR
     orc prime(name1, adv_class, classes1, tribe1, 1, "none", "captain");
 
+    std::cout << "Try kill a beast for level and ability?" << std::endl;
+    std::cout << "You have 4 choices" << std::endl;
+    std::cout
+            << "1. You can do it in an easy way but get just 1 level up. If you can do it; or else you will get fucked."
+            << std::endl;
+    std::cout
+            << "2. Not only is there a 20% chance of getting a new ability, but you will also get 1 level up. However, the enemies will be much stronger."
+            << std::endl;
+    std::cout
+            << "3. Not only is there a 50% chance of getting a new ability, but also a 15% chance of getting 2 levels up. The enemies are stronger than ever.";
+    std::cout
+            << "4. You will get a new ability and there is a 40% chance to get 2 levels up. But be aware that only the strongest got the chance to tell the story of that day."
+            << std::endl;
+    std::cout << "What will your choice be?-" << std::endl;
+    std::cin >> v;
+    int pos = 1;
+    beast one;
+    srand(time(NULL));
+    switch (v) {
+        case 1:
+            pos = 1 + rand() % 4;
+            switch (pos) {
+                case 1:
+                     one = beast_factory::caragour_easy();
+                    break;
+                case 2:
+                    one = beast_factory::dragon_easy();
+                    break;
+                case 3:
+                    one = beast_factory::graug_easy();
+                    break;
+                case 4:
+                    one = beast_factory::ghuls_easy();
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 2:
+            pos = 1 + rand() % 4 ;
+            switch (pos) {
+                case 1:
+                    one = beast_factory::caragour_medium();
+                    break;
+                case 2:
+                    one = beast_factory::dragon_medium();
+                    break;
+                case 3:
+                    one = beast_factory::graug_medium();
+                    break;
+                case 4:
+                    one = beast_factory::ghuls_medium();
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 3:
+            pos = 1 + rand() % 4;
+            switch (pos) {
+                case 1:
+                    one = beast_factory::caragour_hard();
+                    break;
+                case 2:
+                    one = beast_factory::dragon_hard();
+                    break;
+                case 3:
+                    one = beast_factory::graug_hard();
+                    break;
+                case 4:
+                    one = beast_factory::ghuls_hard();
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 4:
+            pos = 1 + rand() % 3;
+            switch (pos) {
+                case 1:
+                    one = beast_factory::caragour_legendary();
+                    break;
+                case 2:
+                    one = beast_factory::dragon_legendary();
+                    break;
+                case 3:
+                    one = beast_factory::graug_legendary();
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
+
+    }
+    prime.setLevel(prime.getLevel()+1);
 }
 
 int start() {
     int v = 0;
-    std::cout << std::setw(25);
-    std::cout << "Who can be the overlord?" << std::endl;
-    std::cout << std::endl;
-    std::cout << std::setw(0);
-    std::cout << "1-Start Game" << std::endl;
-    std::cout << "2-Exit" << std::endl;
-    std::cout << std::setw(25);
-    std::cout << "What do you choose now?-";
-    std::cin >> v;
-    CLEAR
-    switch (v) {
-        case 1:
-            create_orc();
-            break;
-        case 2:
-            return 0;
-        default:
-            break;
+    while (v != 2) {
+        std::cout << std::setw(25);
+        std::cout << "Who can be the overlord?" << std::endl;
+        std::cout << std::endl;
+        std::cout << std::setw(0);
+        std::cout << "1-Start Game" << std::endl;
+        std::cout << "2-Exit" << std::endl;
+        std::cout << std::setw(25);
+        std::cout << "What do you choose now?-";
+        std::cin >> v;
+        CLEAR
+        switch (v) {
+            case 1:
+                create_orc();
+                break;
+            case 2:
+                return 0;
+            default:
+                break;
+        }
     }
     return 0;
 }
 
-void orc_create()
-{
-    int r= rand() % 100 + 1;
-//    std::cout<<r;
-    std::vector<std::string> s{"Fire Proof","Beast Proof","Poison Proof","Arrow Proof","Immune to curse","Immune to execution","Vigilant against stealth","Enraged by everything","Enraged by injury","Blood Brother","Enraged by rival","Enraged by hounded","Enraged by vengefull","Enraged by Drakes","Enraged by Graugs","Enraged by Ghuls","Enraged by Stealth","Agile","No Chance","Caragor Pack","Dem Mother","Spider Summener","Rampage","Flyng Axes","Shield Slam","Beast Slayer","Poison Weapon","Gang Hunters","Gang Hunters Elite","Giant Slayer","Cursed Weapon","Poison master","Cursed Master","Fanatical Gang","Great Strenghts","Epic Graug calll","Epic Catargor rider","Drake lure"};
-//    Toate tipurile din weeakness sunt puse intr-un vector dar pt fiecare tip se va face un rand in functie de pozitile unde se afla.
-
-    std::vector<std::string> w{};
-    std::cout<<s[6];
-}
+//void orc_create() {
+//    int r = rand() % 100 + 1;
+////    std::cout<<r;
+//    std::vector<std::string> s{"Fire Proof", "Beast Proof", "Poison Proof", "Arrow Proof", "Immune to curse",
+//                               "Immune to execution", "Vigilant against stealth", "Enraged by everything",
+//                               "Enraged by injury", "Blood Brother", "Enraged by rival", "Enraged by hounded",
+//                               "Enraged by vengefull", "Enraged by Drakes", "Enraged by Graugs", "Enraged by Ghuls",
+//                               "Enraged by Stealth", "Agile", "No Chance", "Caragor Pack", "Dem Mother",
+//                               "Spider Summener", "Rampage", "Flyng Axes", "Shield Slam", "Beast Slayer",
+//                               "Poison Weapon", "Gang Hunters", "Gang Hunters Elite", "Giant Slayer", "Cursed Weapon",
+//                               "Poison master", "Cursed Master", "Fanatical Gang", "Great Strenghts",
+//                               "Epic Graug calll", "Epic Catargor rider", "Drake lure"};
+////    Toate tipurile din weeakness sunt puse intr-un vector dar pt fiecare tip se va face un rand in functie de pozitile unde se afla.
+//
+//    std::vector<std::string> w{};
+//    std::cout << s[6];
+//}
 
 int main() {
     //orc DeanDegenerate("DeanDegenerate","slayer","savage","dark-tribe",59,"none","none");
     //create_orc();
-    orc_create();
+//    orc_create();
     sf::Music music;
     if (!music.openFromFile("music.wav"))
         return -1; // error
     music.play();
     start();
     return 0;
-
 
 }

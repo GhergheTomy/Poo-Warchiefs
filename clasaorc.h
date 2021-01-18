@@ -14,6 +14,7 @@ private:
     std::string connection;
     std::string rank;
 public:
+
     //Constructor
     orc(const std::string &name, const std::string &advanced_classes, const std::string &classes /*, const string &strengths,
         const string &weakness */, const std::string &tribe, const int &level, const std::string &connection,
